@@ -65,7 +65,10 @@ with open(budget_data) as bankfile:
 # Calculate Average Change in P/L
 average_change_profit_loss =  round((cumulative_profit_loss / (total_months-1)),2)
 
-#print results to terminals
+# Define output into one variable formatted with all data this will
+# allow us to write it once to the terminal and then to the output 
+# text file
+
 output = (
     f'\nFinancial Analysis\n'
     f'---------------------------------------------------------------\n'
@@ -75,9 +78,9 @@ output = (
     f'Greatest Increase in Profits : {greatest_increase_month} (${greatest_increase})\n'
     f'Greatest Decrease in Profits : {greatest_decrease_month} (${greatest_decrease})\n')
 
+#print results to terminals
+
 print(output)
-#https://pythonexamples.org/python-write-string-to-text-file/
-#this will write the necessary analysis lines to a text file
 
 # Get the path for the analysis text file
 
