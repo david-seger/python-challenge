@@ -66,16 +66,16 @@ with open(budget_data) as bankfile:
 average_change_profit_loss =  round((cumulative_profit_loss / (total_months-1)),2)
 
 #print results to terminals
+output = (
+    f'\nFinancial Analysis\n'
+    f'---------------------------------------------------------------\n'
+    f'Total Months . . : {total_months}\n'
+    f'Total  . . . . . : ${total_profit_loss}\n'
+    f'Average Change . : ${average_change_profit_loss}\n'
+    f'Greatest Increase in Profits : {greatest_increase_month} (${greatest_increase})\n'
+    f'Greatest Decrease in Profits : {greatest_decrease_month} (${greatest_decrease})\n')
 
-print('Financial Analysis')
-print('---------------------------------------------------------------')
-print(f'Total Months . . : {total_months}')
-print(f'Total  . . . . . : ${total_profit_loss}')
-print(f'Average Change . : ${average_change_profit_loss}')
-print(f'Greatest Increase in Profits : {greatest_increase_month} (${greatest_increase})')
-print(f'Greatest Decrease in Profits : {greatest_decrease_month} (${greatest_decrease})')
-
-
+print(output)
 #https://pythonexamples.org/python-write-string-to-text-file/
 #this will write the necessary analysis lines to a text file
 
@@ -85,12 +85,6 @@ analysis_file = os.path.join('Analysis', 'analysis.txt')
 
 analysis_writer = open(analysis_file, "w")
 
-n=analysis_writer.write('Financial Analysis\n')
-n=analysis_writer.write('---------------------------------------------------------------\n')
-n=analysis_writer.write(f'Total Months . . : {total_months}\n')
-n=analysis_writer.write(f'Total  . . . . . : ${total_profit_loss}\n')
-n=analysis_writer.write(f'Average Change . : ${average_change_profit_loss}\n')
-n=analysis_writer.write(f'Greatest Increase in Profits : {greatest_increase_month} (${greatest_increase})\n')
-n=analysis_writer.write(f'Greatest Decrease in Profits : {greatest_decrease_month} (${greatest_decrease})\n')
+n=analysis_writer.write(output)
 
 analysis_writer.close()
