@@ -15,7 +15,6 @@ import csv
 total_months =  0                       # Count of Months in csv
 prior_profit_loss = 0                   # Prior Month P/L
 total_profit_loss = 0                   # Total P/L
-total_difference = 0                    # Total Change in P/L by month
 average_change_profit_loss = 0.00       # Avg chg in P/L for periods
 greatest_increase_month = ''            # Greatest increase - Month
 greatest_increase = 0                   # Greatest increase - Dollar
@@ -39,17 +38,16 @@ with open(budget_data) as bankfile:
  
     # Read each row of data after the header
     for row in csvreader:
-        total_months = total_months + 1
+        total_months += 1
         current_profit_loss = int(row[1])
-        total_profit_loss = total_profit_loss + current_profit_loss
+        total_profit_loss += current_profit_loss
 
         # Now calculate difference in current p/l - prior p/l
         # Keep running total of cumulative p/l
          
         if total_months > 1 :
             difference =  current_profit_loss - prior_profit_loss
-            total_difference = total_difference + difference
-            cumulative_profit_loss = cumulative_profit_loss + difference
+            cumulative_profit_loss += difference
         else:
             cumulative_profit_loss=0
         
