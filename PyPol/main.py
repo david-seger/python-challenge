@@ -80,26 +80,26 @@ election_writer = open(election_file, "w")
 
 #write election result data to results file.
 
-n=election_writer.write('Election Results\n')
-n=election_writer.write('-------------------------------\n')
-n=election_writer.write(f'Total Votes: {total_votes}\n')
-n=election_writer.write('-------------------------------\n')
+election_writer.write('Election Results\n')
+election_writer.write('-------------------------------\n')
+election_writer.write(f'Total Votes: {total_votes}\n')
+election_writer.write('-------------------------------\n')
 
 # Iterate over key/value pairs in dict and print them
 for key, value in candidate.items():
     percent_of_votes = (value/total_votes) * 100
     candidate_name = key
-    n=election_writer.write(candidate_name)
-    n=election_writer.write(': ')
-    n=election_writer.write("{:.3f}".format(percent_of_votes))
-    n=election_writer.write('%  (')
+    election_writer.write(candidate_name)
+    election_writer.write(': ')
+    election_writer.write("{:.3f}".format(percent_of_votes))
+    election_writer.write('%  (')
     candidate_vote = str(value)
-    n=election_writer.write(candidate_vote)
-    n=election_writer.write(')\n')
+    election_writer.write(candidate_vote)
+    election_writer.write(')\n')
 
-n=election_writer.write('-------------------------------\n')
-n=election_writer.write(f'Winner: {winner_name}\n')
-n=election_writer.write('-------------------------------\n')   
+election_writer.write('-------------------------------\n')
+election_writer.write(f'Winner: {winner_name}\n')
+election_writer.write('-------------------------------\n')   
 
 # Close election file
 election_writer.close()

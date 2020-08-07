@@ -88,6 +88,6 @@ analysis_file = os.path.join('Analysis', 'analysis.txt')
 
 analysis_writer = open(analysis_file, "w")
 
-n=analysis_writer.write(output)
+analysis_writer.write(output)
 
 analysis_writer.close()
